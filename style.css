@@ -1,5 +1,6 @@
 :root {
     --main-color: #d3ad7f;
+    --scroll-color: #ab8d6ac4;
     --black: #13131a;
     --bg: #010103;
     --border: 0.1rem solid rgba(255, 255, 255, 0.3);
@@ -20,23 +21,21 @@
 
 body {
     background: var(--bg);
+}
 
-
+html {
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
-    /* Define a largura da barra de rolagem vertical */
-    width: 30px; /* Reduza este valor para diminuir */
-    /* Define a altura da barra de rolagem horizontal */
-    height: 8px; 
-
+    width: 12px;
 }
-
 ::-webkit-scrollbar-thumb {
-    background-color: #591e1e96; /* Cor da alça */
-    border-radius: 9px; /* Opcional: cantos arredondados */
+    background-color: var(--scroll-color);
+    border-radius: 9px;
 }
-
 
 section {
     padding: 3rem 2rem;
@@ -48,14 +47,16 @@ section {
     background: var(--main-color);
     padding: 1rem 3rem;
     font-size: 1.7rem;
+    font-weight: bolder;
     cursor: pointer;
     margin-top: 1rem;
     display: inline-block;
     border-radius: 12px;
+    color: #010103;
 }
 
 .link {
-    padding: 06rem;
+    padding: 02rem;
 }
 
 .btn:hover {
@@ -96,6 +97,31 @@ section {
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
 
+        & #menu-toggle {
+            display: none;
+        }
+
+        & span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--main-color);
+            border-radius: 5px;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &:nth-child(3) {
+                bottom: 0;
+            }
+        }
+
         & nav a {
             margin: 0 1rem;
             font-size: 1.8rem;
@@ -119,6 +145,15 @@ section {
             height: 40px;
         }
     }
+}
+
+.header section .menu-btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
 }
 
 .home-container {
@@ -199,8 +234,6 @@ section {
         &:hover {
             background-color: var(--black);
         }
-
-
     }
 }
 
@@ -225,8 +258,6 @@ section {
             & img {
                 height: 4rem;
             }
-
-
         }
     }
 }
@@ -264,3 +295,154 @@ footer {
     }
 }
 
+@media (max-width: 1024px) {
+    .about {
+        & .rows {
+            flex-direction: column;
+        }
+
+        & .rows img {
+            position: relative;
+            height: 350px;
+            width: 100%;
+        }
+
+        & .p-none {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .box-container {
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+        & h3 {
+            font-size: 4.5rem;
+        }
+
+        & p {
+            font-size: 1.4rem;
+        }
+    }
+
+    .title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .header section .icons {
+        display: none;
+    }
+
+    .header section .menu-btn {
+        display: block;
+    }
+    .header section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        & nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--bg);
+            flex-direction: column;
+            align-items: center;
+            border-top: var(--border);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: clip-path 0.4s ease-in-out;
+            z-index: 99;
+        }
+
+        & nav a {
+            display: block;
+            margin: 1.5rem 0;
+            font-size: 2rem;
+        }
+    }
+
+    .header section .logo img {
+        height: 5rem;
+        width: auto;
+    }
+
+    #menu-toggle:checked ~ nav {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    #menu-toggle:checked ~ .menu-btn span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    #menu-toggle:checked ~ .menu-btn span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .menu-btn span:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+    }
+
+    .home-container {
+        background: url(./img/home-img\ -\ mobile.jpg);
+    }
+
+    .about {
+        & .rows {
+            flex-direction: column;
+        }
+
+        & .rows img {
+            position: relative;
+            height: 350px;
+            width: 100%;
+        }
+
+        & .p-none {
+            display: none;
+        }
+
+        & .content h3 {
+            font-size: 2.5rem;
+        }
+        & .content p {
+            font-size: 1.5rem;
+        }
+    }
+    .review .box-container .box p {
+        font-size: 1.4rem;
+    }
+
+    .address iframe {
+        width: 100%;
+    }
+}
+
+@media (max-width: 325px) {
+    .home-container {
+        & section {
+            display: flex;
+            align-items: center;
+        }
+
+        & .content {
+            padding: 2rem;
+        }
+
+        & h3 {
+            font-size: 4.5rem;
+        }
+
+        & p {
+            font-size: 1.4rem;
+        }
+    }
+
+    .link {
+        padding: 03rem;
+    }
+}
