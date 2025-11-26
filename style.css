@@ -1,0 +1,266 @@
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    font-family: "Roboto", sans-serif;
+    color: #fff;
+}
+
+body {
+    background: var(--bg);
+
+
+}
+
+::-webkit-scrollbar {
+    /* Define a largura da barra de rolagem vertical */
+    width: 30px; /* Reduza este valor para diminuir */
+    /* Define a altura da barra de rolagem horizontal */
+    height: 8px; 
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #591e1e96; /* Cor da alça */
+    border-radius: 9px; /* Opcional: cantos arredondados */
+}
+
+
+section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    background: var(--main-color);
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+    border-radius: 12px;
+}
+
+.link {
+    padding: 06rem;
+}
+
+.btn:hover {
+    letter-spacing: 0.1rem;
+}
+
+.content {
+    max-width: 60rem;
+
+    & h3 {
+        font-size: 6rem;
+        color: #fff;
+    }
+
+    & p {
+        font-size: 2rem;
+        color: #eee;
+        font-weight: 100;
+        padding: 1rem 0;
+        line-height: 1.8;
+        padding: 1rem 0;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-bottom: var(--border);
+    background-color: var(--bg);
+
+    & section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+
+        & nav a {
+            margin: 0 1rem;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        & nav a:hover {
+            color: var(--main-color);
+            border-bottom: 0.1rem solid var(--main-color);
+            padding-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        & .icons img {
+            margin: 1rem;
+            cursor: pointer;
+        }
+
+        & .icons img:hover {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
+.home-container {
+    background: url(./img/home-img.jpg);
+    background-size: cover;
+    background-position: center;
+
+    & section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    color: var(--main-color);
+
+    & span {
+        color: #fff;
+    }
+}
+
+.about {
+    & .rows {
+        display: flex;
+        align-items: center;
+        background: var(--black);
+        gap: 1.5rem;
+    }
+
+    & .content {
+        padding: 2rem;
+
+        & h3 {
+            font-size: 3rem;
+        }
+
+        & p {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+
+    & .box {
+        padding: 5rem;
+        text-align: center;
+        border: var(--border);
+        cursor: pointer;
+
+        & img {
+            height: 10rem;
+        }
+
+        & h3 {
+            font-size: 2rem;
+            padding: 1rem 0;
+        }
+
+        & .price {
+            font-size: 2.5rem;
+            padding: 0.5rem 0;
+        }
+
+        & span {
+            font-size: 1.5rem;
+            text-decoration: line-through;
+            font-weight: lighter;
+        }
+
+        &:hover {
+            background-color: var(--black);
+        }
+
+
+    }
+}
+
+.review {
+    & .box-container {
+        & .box {
+            border: var(--border);
+            text-align: center;
+            padding: 3rem 2rem;
+
+            & p {
+                font-size: 1.5rem;
+                line-height: 1.8;
+                padding: 2rem 0;
+            }
+
+            & .user {
+                height: 7rem;
+                width: 7rem;
+                border-radius: 50%;
+            }
+            & img {
+                height: 4rem;
+            }
+
+
+        }
+    }
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & iframe {
+        border-radius: 16px;
+    }
+}
+
+footer {
+    background-color: var(--black);
+    text-align: center;
+
+    & .share {
+        padding: 1rem 0;
+
+        & a {
+            img {
+                margin: 0.3rem;
+                cursor: pointer;
+                border-radius: 50%;
+                padding: 1rem;
+
+                &:hover {
+                    text-decoration: none;
+                    background-color: var(--main-color);
+                }
+            }
+        }
+    }
+}
+
